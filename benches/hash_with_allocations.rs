@@ -1,5 +1,5 @@
 use criterion::{criterion_group, criterion_main, Criterion};
-use experiment::{gen_keys, LEN, KEY_LEN, prepare_hash_map};
+use map_key_experiment::{gen_keys, LEN, KEY_LEN, prepare_hash_map};
 
 fn criterion_benchmark(c: &mut Criterion) {
     let keys = gen_keys(LEN, KEY_LEN);

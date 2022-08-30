@@ -1,5 +1,5 @@
 [package]
-name = "experiment"
+name = "map_key_experiment"
 version = "0.1.0"
 edition = "2021"
 

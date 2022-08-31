@@ -1,3 +1,4 @@
+use indexmap::IndexMap;
 use rand;
 
 use rand::prelude::*;
@@ -5,6 +6,9 @@ use std::borrow::Borrow;
 use std::collections::BTreeMap;
 use std::collections::hash_map::{HashMap};
 use std::hash::{Hash, Hasher};
+
+pub const LEN: usize = 100;
+pub const KEY_LEN: usize = 10;
 
 pub struct ShortKey<'a>(pub &'a str);
 
@@ -102,6 +106,11 @@ pub fn prepare_btree_map(keys: &[String]) -> BTreeMap<String, usize> {
     map
 }
 
-
-pub const LEN: usize = 1000;
-pub const KEY_LEN: usize = 10;
+pub fn prepare_index_map(keys: &[String]) -> IndexMap<String, usize> {
+    let mut map = IndexMap::default();
+    for key in keys {
+        map.insert(format!("_{}", key), 1);
+        map.insert(key.clone(), 1);
+    }
+    map
+}
